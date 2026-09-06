@@ -1,0 +1,416 @@
+<title>Cagnotte ZEvent 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --plane:#f4f6f8; --surface:#fdfdfe; --sunk:#eef1f5;
+  --ink:#0d1117; --ink-2:#4e5561; --ink-3:#858c98;
+  --rule:#dfe3e9; --rule-soft:#eaedf2; --grid:#e4e8ed;
+  --night:rgba(13,17,23,.038);
+  --e21:#86b6ef; --e22:#5598e7; --e24:#2a78d6; --e25:#184f95;
+  --live:#eb6834; --live-soft:rgba(235,104,52,.14); --live-ring:rgba(235,104,52,.28);
+  --font-d:"Bricolage Grotesque","Public Sans",system-ui,sans-serif;
+  --font-b:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --plane:#0b0d11; --surface:#14171c; --sunk:#191d23;
+    --ink:#f2f4f7; --ink-2:#b6bcc6; --ink-3:#7d848f;
+    --rule:#252a31; --rule-soft:#1d2229; --grid:#232830;
+    --night:rgba(255,255,255,.032);
+    --e21:#cde2fb; --e22:#9ec5f4; --e24:#6da7ec; --e25:#3987e5;
+    --live:#f0763f; --live-soft:rgba(240,118,63,.16); --live-ring:rgba(240,118,63,.32);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --plane:#0b0d11; --surface:#14171c; --sunk:#191d23;
+  --ink:#f2f4f7; --ink-2:#b6bcc6; --ink-3:#7d848f;
+  --rule:#252a31; --rule-soft:#1d2229; --grid:#232830;
+  --night:rgba(255,255,255,.032);
+  --e21:#cde2fb; --e22:#9ec5f4; --e24:#6da7ec; --e25:#3987e5;
+  --live:#f0763f; --live-soft:rgba(240,118,63,.16); --live-ring:rgba(240,118,63,.32);
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--plane);color:var(--ink);font-family:var(--font-b);
+     font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:44px 24px 88px;display:flex;flex-direction:column;gap:46px}
+h1,h2,h3{font-family:var(--font-d);text-wrap:balance;margin:0;letter-spacing:-.02em;line-height:1.14}
+h1{font-size:clamp(30px,4.4vw,46px);font-weight:800}
+h2{font-size:clamp(21px,2.5vw,26px);font-weight:600}
+h3{font-size:16px;font-weight:600;letter-spacing:-.01em}
+p{margin:0}
+.prose{max-width:66ch;display:flex;flex-direction:column;gap:14px;color:var(--ink-2)}
+.prose strong{color:var(--ink);font-weight:600}
+.eyebrow{font-family:var(--font-m);font-size:11.5px;font-weight:500;letter-spacing:.13em;
+         text-transform:uppercase;color:var(--ink-3)}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- verdict ---------- */
+header{display:flex;flex-direction:column;gap:18px}
+.verdict{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:0;
+         background:var(--surface);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.verdict>div{padding:26px 28px}
+.v-main{border-right:1px solid var(--rule)}
+.big{font-family:var(--font-d);font-weight:800;font-size:clamp(52px,9vw,86px);line-height:.94;
+     letter-spacing:-.035em;color:var(--live);display:flex;align-items:baseline;gap:.14em}
+.big small{font-size:.36em;font-weight:600;letter-spacing:-.02em}
+.v-sub{margin-top:12px;color:var(--ink-2);font-size:15px}
+.facts{display:flex;flex-direction:column;gap:0;height:100%;justify-content:center}
+.fact{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+      padding:9px 0;border-bottom:1px solid var(--rule-soft)}
+.fact:last-child{border-bottom:0}
+.fact dt{color:var(--ink-3);font-size:13.5px}
+.fact dd{margin:0;font-family:var(--font-m);font-size:15px;font-weight:500;
+         font-variant-numeric:tabular-nums;color:var(--ink)}
+.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--live);
+          margin-right:7px;vertical-align:middle}
+@media(prefers-reduced-motion:no-preference){
+  .live-dot{animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+}
+
+/* ---------- chart ---------- */
+figure{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:14px;
+       padding:22px 22px 16px}
+.fig-head{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:baseline;justify-content:space-between;
+          margin-bottom:6px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:12px 0 0;padding:0;list-style:none}
+.legend li{display:flex;align-items:center;gap:7px;font-family:var(--font-m);font-size:12px;color:var(--ink-2)}
+.swatch{width:16px;height:3px;border-radius:2px;flex:none}
+.swatch.dash{background:repeating-linear-gradient(90deg,var(--live) 0 5px,transparent 5px 9px)}
+.chart-scroll{overflow-x:auto}
+svg{display:block;width:100%;min-width:640px;height:auto}
+.axis-txt{font-family:var(--font-m);font-size:11px;fill:var(--ink-3)}
+.end-lbl{font-family:var(--font-m);font-size:11.5px;font-weight:600}
+figcaption{margin-top:14px;padding-top:13px;border-top:1px solid var(--rule-soft);
+           font-size:13.5px;color:var(--ink-3);max-width:74ch}
+#tip{position:absolute;pointer-events:none;opacity:0;transition:opacity .1s;z-index:5;
+     background:var(--surface);border:1px solid var(--rule);border-radius:9px;padding:9px 11px;
+     box-shadow:0 6px 22px rgba(13,17,23,.13);font-family:var(--font-m);font-size:11.5px;
+     min-width:150px;color:var(--ink)}
+#tip .th{color:var(--ink-3);margin-bottom:6px;letter-spacing:.02em}
+#tip .row{display:flex;justify-content:space-between;gap:14px;padding:1.5px 0;font-variant-numeric:tabular-nums}
+#tip .row b{font-weight:600}
+.chart-holder{position:relative}
+
+/* ---------- tables ---------- */
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl caption{text-align:left;font-family:var(--font-m);font-size:11.5px;letter-spacing:.13em;
+             text-transform:uppercase;color:var(--ink-3);padding-bottom:11px}
+.tbl th,.tbl td{padding:9px 12px;border-bottom:1px solid var(--rule-soft);text-align:right}
+.tbl th{font-weight:500;color:var(--ink-3);font-size:12.5px;border-bottom:1px solid var(--rule)}
+.tbl th:first-child,.tbl td:first-child{text-align:left;padding-left:0}
+.tbl td:last-child,.tbl th:last-child{padding-right:0}
+.tbl td.n{font-family:var(--font-m);font-variant-numeric:tabular-nums}
+.tbl tr.hi td{background:var(--live-soft)}
+.tbl tr.hi td:first-child{font-weight:600;color:var(--ink)}
+.bar{position:relative;height:7px;border-radius:4px;background:var(--sunk);overflow:hidden;min-width:96px}
+.bar i{position:absolute;inset:0 auto 0 0;border-radius:4px;display:block}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:34px}
+.panel{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px}
+
+/* ---------- scenarios ---------- */
+.scen{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;
+      background:var(--rule);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.scen>div{background:var(--surface);padding:20px 22px;display:flex;flex-direction:column;gap:5px}
+.scen .val{font-family:var(--font-d);font-size:31px;font-weight:700;letter-spacing:-.025em;
+           font-variant-numeric:tabular-nums}
+.scen .lbl{font-size:13px;color:var(--ink-2)}
+.scen .lam{font-family:var(--font-m);font-size:11.5px;color:var(--ink-3)}
+.scen .mid{color:var(--live)}
+
+/* ---------- limits ---------- */
+.limits{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0}
+.limits li{padding:15px 0;border-bottom:1px solid var(--rule-soft);display:grid;
+           grid-template-columns:186px 1fr;gap:22px;align-items:start}
+.limits li:last-child{border-bottom:0}
+.limits .k{font-family:var(--font-m);font-size:12px;color:var(--live);letter-spacing:.02em;padding-top:2px}
+.limits .v{color:var(--ink-2);font-size:14.5px;line-height:1.58}
+footer{border-top:1px solid var(--rule);padding-top:20px;color:var(--ink-3);font-size:13px;
+       display:flex;flex-wrap:wrap;gap:6px 22px;justify-content:space-between}
+footer a{color:var(--ink-2);text-decoration:underline;text-underline-offset:2px}
+footer a:focus-visible,.tbl a:focus-visible{outline:2px solid var(--live);outline-offset:3px;border-radius:2px}
+@media(max-width:720px){
+  .verdict{grid-template-columns:1fr}
+  .v-main{border-right:0;border-bottom:1px solid var(--rule)}
+  .limits li{grid-template-columns:1fr;gap:5px}
+}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Modèle statistique · dernière édition · 22 associations</p>
+  <h1>Combien le ZEvent 2026 va-t-il récolter&nbsp;?</h1>
+  <div class="verdict">
+    <div class="v-main">
+      <p class="eyebrow" style="margin-bottom:12px">Estimation du total final</p>
+      <div class="big">29,8<small>&nbsp;M€</small></div>
+      <p class="v-sub">Intervalle 80&nbsp;% : <strong style="color:var(--ink)">26 – 34 M€</strong>.
+         Soit <strong style="color:var(--ink)">×1,84</strong> le record de 2025.</p>
+    </div>
+    <div>
+      <dl class="facts">
+        <div class="fact"><dt><span class="live-dot"></span>Cagnotte en direct</dt><dd id="f-now">13 446 088 €</dd></div>
+        <div class="fact"><dt>Temps écoulé</dt><dd id="f-h">41,9 h / 55 h</dd></div>
+        <div class="fact"><dt>Reste à collecter (estimé)</dt><dd id="f-rem">16,4 M€</dd></div>
+        <div class="fact"><dt>Record actuel (2025)</dt><dd>16 179 096 €</dd></div>
+      </dl>
+    </div>
+  </div>
+  <div class="prose">
+    <p>Le ZEvent 2026 a démarré vendredi 4 septembre à 18&nbsp;h et se termine dans la nuit de
+       dimanche à lundi. Toutes les éditions suivent ce même calendrier, ce qui permet de les
+       superposer heure par heure et de situer 2026 par rapport à son histoire.</p>
+  </div>
+</header>
+
+<section>
+  <figure>
+    <div class="fig-head">
+      <h2>Les éditions superposées, heure par heure</h2>
+      <p class="eyebrow">h = heures depuis vendredi 18&nbsp;h</p>
+    </div>
+    <div class="chart-holder">
+      <div class="chart-scroll"><svg id="chart" viewBox="0 0 1000 470" role="img"
+        aria-label="Courbes cumulées de la cagnotte pour les éditions 2021, 2022, 2024, 2025 et 2026, en millions d'euros, en fonction des heures écoulées depuis le vendredi 18 h."></svg></div>
+      <div id="tip" aria-hidden="true"></div>
+    </div>
+    <ul class="legend">
+      <li><span class="swatch" style="background:var(--e21)"></span>2021 · 10,1 M€</li>
+      <li><span class="swatch" style="background:var(--e22)"></span>2022 · 10,2 M€</li>
+      <li><span class="swatch" style="background:var(--e24)"></span>2024 · 10,1 M€</li>
+      <li><span class="swatch" style="background:var(--e25)"></span>2025 · 16,2 M€</li>
+      <li><span class="swatch" style="background:var(--live)"></span>2026 · relevés</li>
+      <li><span class="swatch" style="background:repeating-linear-gradient(90deg,var(--live) 0 2px,transparent 2px 6px)"></span>2026 · pas de relevé</li>
+      <li><span class="swatch dash"></span>2026 · projection (bande&nbsp;80&nbsp;%)</li>
+    </ul>
+    <figcaption>Les zones grisées sont les nuits (2&nbsp;h–10&nbsp;h), où la collecte s'aplatit.
+      Les courbes décollent toutes dans les dernières heures : c'est le sprint final qui fait le total,
+      pas le rythme de croisière. Le segment pointillé de 2026 relie deux relevés distants —
+      la trajectoire réelle entre h&nbsp;=&nbsp;5 et h&nbsp;=&nbsp;32 n'est pas mesurée.</figcaption>
+  </figure>
+</section>
+
+<section class="two">
+  <div class="panel">
+    <table class="tbl">
+      <caption>Part du total déjà collectée à h = 41,9</caption>
+      <thead><tr><th>Édition</th><th>Part</th><th style="width:34%"></th></tr></thead>
+      <tbody id="t-part"></tbody>
+    </table>
+    <p style="margin-top:15px;font-size:13.5px;color:var(--ink-3);line-height:1.55">
+      Au même instant, les éditions passées n'avaient encaissé que 27 à 45&nbsp;% de leur total.
+      Prolonger le rythme actuel sous-estimerait donc lourdement le résultat.</p>
+  </div>
+  <div class="panel">
+    <table class="tbl">
+      <caption>2026 rapporté à chaque édition</caption>
+      <thead><tr><th>Édition</th><th>à h = 5</th><th>à h = 41,9</th><th>dérive</th></tr></thead>
+      <tbody id="t-ratio"></tbody>
+    </table>
+    <p style="margin-top:15px;font-size:13.5px;color:var(--ink-3);line-height:1.55">
+      C'est le cœur du modèle : le rapport de 2026 à <strong style="color:var(--ink-2)">2025</strong>
+      bouge à peine, alors qu'il explose face aux autres. 2026 n'a pas la forme de 2021-2024 —
+      il a celle de 2025, à un facteur près.</p>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow" style="margin-bottom:14px">Ce que donne le modèle selon l'hypothèse sur λ</p>
+  <div class="scen">
+    <div><span class="val">31,3<small> M€</small></span><span class="lbl">λ figé à sa valeur initiale</span><span class="lam">λ = 1,99 (mesuré à h = 5)</span></div>
+    <div><span class="val mid">29,8<small> M€</small></span><span class="lbl">λ extrapolé — <strong>retenu</strong></span><span class="lam">λ = 1,82 en fin d'événement</span></div>
+    <div><span class="val">30,2<small> M€</small></span><span class="lbl">λ figé à sa valeur actuelle</span><span class="lam">λ = 1,87 (mesuré à h = 41,9)</span></div>
+  </div>
+  <div class="prose" style="margin-top:22px">
+    <h2>La méthode en une ligne</h2>
+    <p>On mesure λ, le rapport entre la cagnotte 2026 et celle de 2025 à la même heure. Il vaut
+       <strong>1,99</strong> à h&nbsp;=&nbsp;5 et <strong>1,87</strong> à h&nbsp;=&nbsp;41,9 — et le rapport des
+       <em>débits instantanés</em> concorde. On extrapole cette lente dérive jusqu'à la fin,
+       puis on applique λ au reste-à-collecter observé en 2025&nbsp;:</p>
+    <p style="font-family:var(--font-m);font-size:13.5px;background:var(--sunk);border-radius:9px;
+              padding:14px 16px;color:var(--ink);overflow-x:auto">
+       F = 13,45 M€ + (16,18 − 7,20) M€ × 1,82 = <strong>29,8 M€</strong></p>
+  </div>
+</section>
+
+<section>
+  <h2 style="margin-bottom:6px">Ce qui peut casser cette prédiction</h2>
+  <p class="prose" style="margin-bottom:20px">La fragilité est réelle, et elle est concentrée
+     sur un point : tout repose sur une seule édition de référence.</p>
+  <ul class="limits">
+    <li><span class="k">Référence unique</span><span class="v">Le backtest leave-one-out montre qu'une
+      homothétie entre deux éditions de <em>formes</em> différentes se trompe de 20 à 60 %. Ici les formes
+      concordent — mais ce critère n'est pas validable sur l'historique : aucune paire passée n'est aussi
+      stable que 2026↔2025.</span></li>
+    <li><span class="k">Hors domaine</span><span class="v">Les totaux historiques tiennent dans
+      10–16 M€. Le modèle prédit le double, en extrapolation.</span></li>
+    <li><span class="k">Anomalie 2025</span><span class="v">La courbe 2025 contient un saut de
+      +2,3 M€ en une heure (h = 29→30) qui gonfle sa part collectée. 2026 semble avoir connu des
+      sursauts comparables — Mastu passe de 0,43 à 2,0 M€ — donc la comparaison tient, mais c'est
+      une hypothèse.</span></li>
+    <li><span class="k">Trou de données</span><span class="v">λ n'est mesuré qu'en deux points :
+      pas de relevé 2026 entre h = 5 et h = 32.</span></li>
+    <li><span class="k">Dernière édition</span><span class="v">Effet non modélisé, et
+      <strong>asymétrique à la hausse</strong> : le final d'un ZEvent qui s'arrête définitivement
+      peut surperformer.</span></li>
+  </ul>
+</section>
+
+<footer>
+  <span>Compteur : <a href="https://zevent.fr/api/">API officielle ZEvent</a> ·
+        courbes 2019-2025 : <a href="https://zevent-cagnotte.vercel.app/">zevent-cagnotte</a> ·
+        totaux : <a href="https://fr.wikipedia.org/wiki/ZEvent">Wikipédia</a></span>
+  <span class="num" id="f-gen">Relevé du 6 septembre 2026, 11 h 52 (Paris)</span>
+</footer>
+</div>
+
+<script id="d" type="application/json">{"generated_utc":"2026-09-06T09:52Z","h_star":41.87,"d_now":13446088,"h_end":55.0,"lambda_early":1.991,"lambda_now":1.867,"lambda_end":1.824,"central":29808651,"p10":25500000.0,"p90":34200000.0,"finals":{"2021":10064480,"2022":10182126,"2024":10145881,"2025":16179096},"hist":{"2021":[[0.0,16336],[0.25,46051],[0.5,75766],[0.75,105482],[1.0,135197],[1.25,258751],[1.5,382305],[1.75,505859],[2.0,629413],[2.25,663904],[2.5,698394],[2.75,732884],[3.0,767375],[3.25,790731],[3.5,814087],[3.75,837443],[4.0,860799],[4.25,881155],[4.5,901511],[4.75,921867],[5.0,942223],[5.25,966249],[5.5,990274],[5.75,1014300],[6.0,1038326],[6.25,1053383],[6.5,1068440],[6.75,1083497],[7.0,1098554],[7.25,1105791],[7.5,1113028],[7.75,1120266],[8.0,1127503],[8.25,1137712],[8.5,1147920],[8.75,1158128],[9.0,1168337],[9.25,1172005],[9.5,1175672],[9.75,1179340],[10.0,1183008],[10.25,1184055],[10.5,1185102],[10.75,1186150],[11.0,1187197],[11.25,1188665],[11.5,1190132],[11.75,1191600],[12.0,1193068],[12.25,1193548],[12.5,1194027],[12.75,1194506],[13.0,1194986],[13.25,1195881],[13.5,1196776],[13.75,1197670],[14.0,1198565],[14.25,1200040],[14.5,1201515],[14.75,1208286],[15.0,1215057],[15.25,1221828],[15.5,1228599],[15.75,1235370],[16.0,1242141],[16.25,1252372],[16.5,1262602],[16.75,1272833],[17.0,1283064],[17.25,1296598],[17.5,1310132],[17.75,1323666],[18.0,1337200],[18.25,1353116],[18.5,1369031],[18.75,1384946],[19.0,1400862],[19.25,1415868],[19.5,1430875],[19.75,1445882],[20.0,1460888],[20.25,1473449],[20.5,1486010],[20.75,1498572],[21.0,1511133],[21.25,1523323],[21.5,1535513],[21.75,1547703],[22.0,1559893],[22.25,1583180],[22.5,1606466],[22.75,1629752],[23.0,1653039],[23.25,1672546],[23.5,1692052],[23.75,1711558],[24.0,1731065],[24.25,1772174],[24.5,1813282],[24.75,1854391],[25.0,1895500],[25.25,1936958],[25.5,1978417],[25.75,2019876],[26.0,2061334],[26.25,2083295],[26.5,2105256],[26.75,2127217],[27.0,2149178],[27.25,2159341],[27.5,2169504],[27.75,2179667],[28.0,2189830],[28.25,2217937],[28.5,2246044],[28.75,2274151],[29.0,2302258],[29.25,2332990],[29.5,2363722],[29.75,2394454],[30.0,2425186],[30.25,2456675],[30.5,2488164],[30.75,2519652],[31.0,2551141],[31.25,2565169],[31.5,2579197],[31.75,2593225],[32.0,2607253],[32.25,2613076],[32.5,2618899],[32.75,2624722],[33.0,2630545],[33.25,2635967],[33.5,2641390],[33.75,2646812],[34.0,2652234],[34.25,2654285],[34.5,2656336],[34.75,2658387],[35.0,2660438],[35.25,2664068],[35.5,2667697],[35.75,2671326],[36.0,2674956],[36.25,2684791],[36.5,2694626],[36.75,2704461],[37.0,2714296],[37.25,2715426],[37.5,2716555],[37.75,2717684],[38.0,2718814],[38.25,2720217],[38.5,2721620],[38.75,2723023],[39.0,2724426],[39.25,2727817],[39.5,2731208],[39.75,2734600],[40.0,2737991],[40.25,2748166],[40.5,2758341],[40.75,2768516],[41.0,2778691],[41.25,2795902],[41.5,2813114],[41.75,2830325],[42.0,2847536],[42.25,2898030],[42.5,2948524],[42.75,2999018],[43.0,3049512],[43.25,3065182],[43.5,3080852],[43.75,3096523],[44.0,3112193],[44.25,3129548],[44.5,3146902],[44.75,3164256],[45.0,3181611],[45.25,3224264],[45.5,3266918],[45.75,3309571],[46.0,3352224],[46.25,3382992],[46.5,3413760],[46.75,3444528],[47.0,3475296],[47.25,3503782],[47.5,3532269],[47.75,3560756],[48.0,3589242],[48.25,3626912],[48.5,3664582],[48.75,3702253],[49.0,3739923],[49.25,3839330],[49.5,3938736],[49.75,4038142],[50.0,4137549],[50.25,4221585],[50.5,4305620],[50.75,4389656],[51.0,4473692],[51.25,5171746],[51.5,5869801],[51.75,6567856],[52.0,7265910],[52.25,7439708],[52.5,7613506],[52.75,7787303],[53.0,7961101],[53.25,8088258],[53.5,8215414],[53.75,8342570],[54.0,8469727],[54.25,8540952],[54.5,8612176],[54.75,8683400],[55.0,8754625],[55.25,9081515],[55.5,9408405],[55.75,9735295],[56.0,10062185]],"2022":[[0.0,15429],[0.25,137721],[0.5,260013],[0.75,324930],[1.0,389847],[1.25,552164],[1.5,714480],[1.75,767900],[2.0,821321],[2.25,853539],[2.5,885757],[2.75,918301],[3.0,950845],[3.25,976102],[3.5,1001358],[3.75,1026276],[4.0,1051194],[4.25,1078055],[4.5,1104916],[4.75,1126334],[5.0,1147751],[5.25,1164910],[5.5,1182069],[5.75,1194847],[6.0,1207625],[6.25,1225476],[6.5,1243327],[6.75,1252244],[7.0,1261162],[7.25,1267986],[7.5,1274810],[7.75,1279048],[8.0,1283287],[8.25,1292812],[8.5,1302337],[8.75,1307466],[9.0,1312595],[9.25,1319405],[9.5,1326215],[9.75,1329652],[10.0,1333090],[10.25,1333926],[10.5,1334761],[10.75,1335375],[11.0,1335989],[11.25,1336748],[11.5,1337508],[11.75,1338350],[12.0,1339193],[12.25,1339926],[12.5,1340658],[12.75,1341158],[13.0,1341658],[13.25,1342338],[13.5,1343017],[13.75,1344084],[14.0,1345151],[14.25,1347428],[14.5,1349706],[14.75,1353861],[15.0,1358016],[15.25,1364514],[15.5,1371011],[15.75,1378158],[16.0,1385306],[16.25,1396326],[16.5,1407347],[16.75,1415764],[17.0,1424180],[17.25,1437142],[17.5,1450103],[17.75,1473709],[18.0,1497315],[18.25,1508709],[18.5,1520103],[18.75,1531014],[19.0,1541925],[19.25,1553956],[19.5,1565986],[19.75,1579448],[20.0,1592910],[20.25,1609641],[20.5,1626372],[20.75,1642768],[21.0,1659165],[21.25,1676840],[21.5,1694515],[21.75,1711284],[22.0,1728054],[22.25,1748554],[22.5,1769053],[22.75,1785838],[23.0,1802624],[23.25,1808672],[23.5,1814719],[23.75,1828076],[24.0,1841432],[24.25,1866918],[24.5,1892403],[24.75,1918520],[25.0,1944636],[25.25,2048776],[25.5,2152917],[25.75,2172798],[26.0,2192680],[26.25,2215838],[26.5,2238997],[26.75,2255760],[27.0,2272524],[27.25,2288758],[27.5,2304993],[27.75,2321658],[28.0,2338323],[28.25,2349328],[28.5,2360334],[28.75,2376280],[29.0,2392227],[29.25,2403650],[29.5,2415074],[29.75,2420184],[30.0,2425294],[30.25,2446724],[30.5,2468155],[30.75,2489277],[31.0,2510399],[31.25,2527369],[31.5,2544339],[31.75,2559382],[32.0,2574425],[32.25,2585996],[32.5,2597567],[32.75,2602408],[33.0,2607248],[33.25,2610746],[33.5,2614244],[33.75,2616719],[34.0,2619194],[34.25,2622140],[34.5,2625087],[34.75,2629308],[35.0,2633530],[35.25,2636586],[35.5,2639642],[35.75,2641088],[36.0,2642533],[36.25,2643603],[36.5,2644673],[36.75,2645470],[37.0,2646266],[37.25,2648086],[37.5,2649907],[37.75,2651276],[38.0,2652646],[38.25,2654786],[38.5,2656925],[38.75,2659951],[39.0,2662977],[39.25,2667488],[39.5,2671998],[39.75,2681222],[40.0,2690446],[40.25,2701076],[40.5,2711705],[40.75,2721820],[41.0,2731934],[41.25,2741792],[41.5,2751649],[41.75,2779867],[42.0,2808085],[42.25,2847623],[42.5,2887161],[42.75,2924050],[43.0,2960938],[43.25,2996274],[43.5,3031610],[43.75,3053238],[44.0,3074866],[44.25,3091852],[44.5,3108838],[44.75,3130824],[45.0,3152811],[45.25,3177629],[45.5,3202447],[45.75,3232692],[46.0,3262938],[46.25,3301859],[46.5,3340780],[46.75,3376935],[47.0,3413090],[47.25,3446204],[47.5,3479319],[47.75,3517168],[48.0,3555017],[48.25,3583098],[48.5,3611178],[48.75,3659550],[49.0,3707923],[49.25,4579812],[49.5,5451701],[49.75,5511626],[50.0,5571551],[50.25,5668752],[50.5,5765954],[50.75,5863155],[51.0,5960356],[51.25,6020772],[51.5,6081187],[51.75,6186146],[52.0,6291105],[52.25,6453289],[52.5,6615473],[52.75,6642162],[53.0,6668850],[53.25,6668850],[53.5,6668850],[53.75,7509315],[54.0,8349780],[54.25,9015957],[54.5,9682134],[54.75,9779163],[55.0,9876192],[55.25,9979758],[55.5,10083324],[55.75,10132725],[56.0,10182126]],"2024":[[0.0,8174],[0.25,46356],[0.5,84539],[0.75,128032],[1.0,171524],[1.25,215047],[1.5,258570],[1.75,290143],[2.0,321716],[2.25,351769],[2.5,381822],[2.75,456298],[3.0,530773],[3.25,559864],[3.5,588956],[3.75,619513],[4.0,650070],[4.25,679766],[4.5,709461],[4.75,727954],[5.0,746446],[5.25,765186],[5.5,783927],[5.75,807724],[6.0,831522],[6.25,850508],[6.5,869493],[6.75,880891],[7.0,892289],[7.25,909160],[7.5,926032],[7.75,934742],[8.0,943452],[8.25,954714],[8.5,965975],[8.75,970090],[9.0,974206],[9.25,990273],[9.5,1006340],[9.75,1009556],[10.0,1012772],[10.25,1013524],[10.5,1014275],[10.75,1015532],[11.0,1016788],[11.25,1017682],[11.5,1018576],[11.75,1019305],[12.0,1020034],[12.25,1021098],[12.5,1022161],[12.75,1023919],[13.0,1025677],[13.25,1026642],[13.5,1027607],[13.75,1029076],[14.0,1030545],[14.25,1033636],[14.5,1036727],[14.75,1039682],[15.0,1042636],[15.25,1048200],[15.5,1053765],[15.75,1060197],[16.0,1066629],[16.25,1072145],[16.5,1077661],[16.75,1083797],[17.0,1089933],[17.25,1103227],[17.5,1116521],[17.75,1127350],[18.0,1138179],[18.25,1148744],[18.5,1159308],[18.75,1177796],[19.0,1196283],[19.25,1205790],[19.5,1215296],[19.75,1232697],[20.0,1250098],[20.25,1288288],[20.5,1326478],[20.75,1340040],[21.0,1353601],[21.25,1376866],[21.5,1400132],[21.75,1406527],[22.0,1412922],[22.25,1472697],[22.5,1532472],[22.75,1546880],[23.0,1561288],[23.25,1579812],[23.5,1598335],[23.75,1618491],[24.0,1638647],[24.25,1647215],[24.5,1655783],[24.75,1671782],[25.0,1687781],[25.25,1746242],[25.5,1804704],[25.75,1830292],[26.0,1855881],[26.25,1883164],[26.5,1910447],[26.75,1968183],[27.0,2025919],[27.25,2381523],[27.5,2737127],[27.75,2755487],[28.0,2773847],[28.25,2802690],[28.5,2831532],[28.75,2847948],[29.0,2864364],[29.25,2878929],[29.5,2893494],[29.75,2917227],[30.0,2940960],[30.25,2965500],[30.5,2990040],[30.75,3007120],[31.0,3024200],[31.25,3032776],[31.5,3041352],[31.75,3050116],[32.0,3058880],[32.25,3066277],[32.5,3073674],[32.75,3077919],[33.0,3082164],[33.25,3088006],[33.5,3093849],[33.75,3097782],[34.0,3101716],[34.25,3102808],[34.5,3103899],[34.75,3104932],[35.0,3105966],[35.25,3116586],[35.5,3127205],[35.75,3128675],[36.0,3130145],[36.25,3131376],[36.5,3132607],[36.75,3133851],[37.0,3135095],[37.25,3136666],[37.5,3138237],[37.75,3140784],[38.0,3143331],[38.25,3144912],[38.5,3146494],[38.75,3151068],[39.0,3155642],[39.25,3159172],[39.5,3162703],[39.75,3172890],[40.0,3183077],[40.25,3192963],[40.5,3202849],[40.75,3213976],[41.0,3225103],[41.25,3247207],[41.5,3269311],[41.75,3320286],[42.0,3371262],[42.25,3407014],[42.5,3442766],[42.75,3459854],[43.0,3476943],[43.25,3490265],[43.5,3503587],[43.75,3537556],[44.0,3571524],[44.25,3616168],[44.5,3660813],[44.75,3691178],[45.0,3721543],[45.25,3780922],[45.5,3840300],[45.75,3871968],[46.0,3903636],[46.25,3954001],[46.5,4004366],[46.75,4035192],[47.0,4066019],[47.25,4111386],[47.5,4156754],[47.75,4210316],[48.0,4263877],[48.25,4347070],[48.5,4430264],[48.75,4483440],[49.0,4536615],[49.25,4938478],[49.5,5340341],[49.75,5443871],[50.0,5547401],[50.25,5585284],[50.5,5623167],[50.75,5678690],[51.0,5734214],[51.25,5795948],[51.5,5857683],[51.75,5940074],[52.0,6022464],[52.25,6846108],[52.5,7669751],[52.75,7867388],[53.0,8065024],[53.25,8341067],[53.5,8617110],[53.75,8827586],[54.0,9038061],[54.25,9258198],[54.5,9478336],[54.75,9762575],[55.0,10046814],[55.25,10096348],[55.5,10145881],[55.75,10145881],[56.0,10145881]],"2025":[[0.0,164452],[0.25,264568],[0.5,379196],[0.75,471775],[1.0,551488],[1.25,638027],[1.5,728402],[1.75,785489],[2.0,834170],[2.25,877122],[2.5,923663],[2.75,973794],[3.0,1016968],[3.25,1065155],[3.5,1130360],[3.75,1197449],[4.0,1233420],[4.25,1268214],[4.5,1307651],[4.75,1339261],[5.0,1388588],[5.25,1414427],[5.5,1446521],[5.75,1475519],[6.0,1551154],[6.25,1578806],[6.5,1599927],[6.75,1619210],[7.0,1641711],[7.25,1655111],[7.5,1687965],[7.75,1700508],[8.0,1713851],[8.25,1720028],[8.5,1726584],[8.75,1729863],[9.0,1735788],[9.25,1745419],[9.5,1749650],[9.75,1755367],[10.0,1780748],[10.25,1785834],[10.5,1799813],[10.75,1802497],[11.0,1804690],[11.25,1808218],[11.5,1810310],[11.75,1811938],[12.0,1813516],[12.25,1816534],[12.5,1817663],[12.75,1819088],[13.0,1820518],[13.25,1821237],[13.5,1822261],[13.75,1823809],[14.0,1825154],[14.25,1830537],[14.5,1835260],[14.75,1839119],[15.0,1842659],[15.25,1847097],[15.5,1856317],[15.75,1868315],[16.0,1885677],[16.25,1898054],[16.5,1909962],[16.75,1931592],[17.0,1947544],[17.25,1966902],[17.5,1989030],[17.75,2013026],[18.0,2028555],[18.25,2047226],[18.5,2065538],[18.75,2085358],[19.0,2104625],[19.25,2131733],[19.5,2168855],[19.75,2197150],[20.0,2226543],[20.25,2272155],[20.5,2316035],[20.75,2382984],[21.0,2456845],[21.25,2515426],[21.5,2544698],[21.75,2569061],[22.0,2598923],[22.25,2628410],[22.5,2672074],[22.75,2706133],[23.0,2743495],[23.25,2848877],[23.5,2918942],[23.75,2987053],[24.0,3050143],[24.25,3102847],[24.5,3201049],[24.75,3241523],[25.0,3261289],[25.25,3575255],[25.5,3777711],[25.75,3887180],[26.0,3907942],[26.25,3920537],[26.5,3942727],[26.75,3957043],[27.0,3988240],[27.25,4011468],[27.5,4028476],[27.75,4050795],[28.0,4072683],[28.25,4090834],[28.5,4110351],[28.75,4145785],[29.0,4186645],[29.25,4242055],[29.5,4267486],[29.75,6473872],[30.0,6517348],[30.25,6540525],[30.5,6554659],[30.75,6562622],[31.0,6588556],[31.25,6626480],[31.5,6717933],[31.75,6752800],[32.0,6767007],[32.25,6792408],[32.5,6844796],[32.75,6860018],[33.0,6866306],[33.25,6872839],[33.5,6877823],[33.75,6882893],[34.0,6886842],[34.25,6889110],[34.5,6890440],[34.75,6897359],[35.0,6947151],[35.25,7015179],[35.5,7024052],[35.75,7026780],[36.0,7030203],[36.25,7032638],[36.5,7033830],[36.75,7035011],[37.0,7035973],[37.25,7037514],[37.5,7038955],[37.75,7040645],[38.0,7041614],[38.25,7043582],[38.5,7048368],[38.75,7054618],[39.0,7059571],[39.25,7065434],[39.5,7073922],[39.75,7081924],[40.0,7090573],[40.25,7102920],[40.5,7122717],[40.75,7136692],[41.0,7148649],[41.25,7165278],[41.5,7178208],[41.75,7196124],[42.0,7251005],[42.25,7339359],[42.5,7383724],[42.75,7438630],[43.0,7495743],[43.25,7539730],[43.5,7582372],[43.75,7619197],[44.0,7648408],[44.25,7691423],[44.5,7719646],[44.75,7750124],[45.0,7788046],[45.25,7833967],[45.5,7933878],[45.75,8131110],[46.0,8223160],[46.25,8356088],[46.5,8535139],[46.75,8664995],[47.0,8716969],[47.25,8789425],[47.5,8915466],[47.75,9025452],[48.0,9104569],[48.25,9167107],[48.5,9211838],[48.75,9267669],[49.0,9337865],[49.25,9429881],[49.5,9573422],[49.75,9705573],[50.0,9901299],[50.25,10260424],[50.5,10667440],[50.75,11060254],[51.0,11357199],[51.25,11524661],[51.5,11670750],[51.75,11857707],[52.0,12071922],[52.25,12362033],[52.5,12548470],[52.75,12920572],[53.0,13339436],[53.25,13672320],[53.5,13893202],[53.75,14813850],[54.0,15506008],[54.25,15701325],[54.5,15876539],[54.75,16058150],[55.0,16173040]]},"obs_2026":[[5.0,2764432],[31.7692,12787379],[31.7858,12789055],[31.8028,12790680],[31.8194,12792000],[31.8361,12803722],[31.8531,12815737],[31.8697,12818337],[31.8867,12821310],[31.9033,12827842],[31.9203,12852939],[31.9369,12872116],[31.9539,12882379],[31.9706,12894105],[31.9875,12909767],[32.0042,12913031],[32.0211,12914093],[41.8144,13424252],[41.8272,13424252],[41.8397,13429462],[41.8525,13439071],[41.865,13446088]],"projection":[[42.0,13532722,13509909,13555973],[42.25,13693899,13628645,13760406],[42.5,13774832,13688266,13863060],[42.75,13874994,13762053,13990103],[43.0,13979183,13838806,14122253],[43.25,14059425,13897919,14224031],[43.5,14137213,13955224,14322696],[43.75,14204392,14004712,14407903],[44.0,14257680,14043969,14475494],[44.25,14336150,14101775,14575022],[44.5,14387635,14139703,14640325],[44.75,14443234,14180662,14710846],[45.0,14512413,14231624,14798591],[45.25,14596184,14293337,14904844],[45.5,14778446,14427604,15136021],[45.75,15138243,14692658,15592379],[46.0,15306165,14816363,15805368],[46.25,15548657,14995001,16112940],[46.5,15875290,15235623,16527233],[46.75,16112178,15410133,16827697],[47.0,16206990,15479979,16947955],[47.25,16339167,15577351,17115605],[47.5,16569096,15746734,17407242],[47.75,16769737,15894542,17661731],[48.0,16914065,16000865,17844793],[48.25,17028151,16084909,17989497],[48.5,17109751,16145021,18092997],[48.75,17211599,16220050,18222178],[49.0,17339653,16314385,18384600],[49.25,17507513,16438044,18597509],[49.5,17769366,16630944,18929638],[49.75,18010442,16808539,19235413],[50.0,18367493,17071570,19688289],[50.25,19022622,17554188,20519240],[50.5,19765117,18101167,21461005],[50.75,20481703,18629059,22369906],[51.0,21023403,19028116,23056986],[51.25,21328894,19253164,23444464],[51.5,21595395,19449489,23782489],[51.75,21936449,19700736,24215074],[52.0,22327229,19988614,24710730],[52.25,22856461,20378487,25381997],[52.5,23196567,20629035,25813379],[52.75,23875370,21129093,26674358],[53.0,24639477,21691993,27643535],[53.25,25246739,22139348,28413772],[53.5,25649680,22436185,28924854],[53.75,27329162,23673420,31055072],[54.0,28591823,24603592,32656603],[54.25,28948130,24866075,33108535],[54.5,29267762,25101540,33513948],[54.75,29599063,25345602,33934164],[55.0,29808651,25500000,34200000]],"r_at_hstar":{"2021":0.282,"2022":0.2743,"2024":0.3296,"2025":0.4452},"ratio_cumul":{"2021":4.74,"2022":4.81,"2024":4.02,"2025":1.87}}</script>
+<script>
+(function(){
+const D=JSON.parse(document.getElementById('d').textContent);
+const eur=n=>new Intl.NumberFormat('fr-FR').format(Math.round(n));
+const M=n=>(n/1e6).toLocaleString('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1});
+
+/* ---- header facts ---- */
+document.getElementById('f-now').textContent=eur(D.d_now)+' €';
+document.getElementById('f-h').textContent=D.h_star.toLocaleString('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1})+' h / 55 h';
+document.getElementById('f-rem').textContent=M(D.central-D.d_now)+' M€';
+
+/* ---- tables ---- */
+const YRS=['2021','2022','2024','2025'], CVAR={2021:'--e21',2022:'--e22',2024:'--e24',2025:'--e25'};
+const partBody=document.getElementById('t-part');
+YRS.forEach(y=>{
+  const r=D.r_at_hstar[y];
+  partBody.insertAdjacentHTML('beforeend',
+   `<tr><td>${y}</td><td class="n">${(r*100).toFixed(1)} %</td>
+    <td><span class="bar"><i style="width:${(r*100).toFixed(1)}%;background:var(${CVAR[y]})"></i></span></td></tr>`);
+});
+partBody.insertAdjacentHTML('beforeend',
+ `<tr class="hi"><td>2026 <span style="font-weight:400;color:var(--ink-3)">(si 29,8 M€)</span></td>
+   <td class="n">${(D.d_now/D.central*100).toFixed(1)} %</td>
+   <td><span class="bar"><i style="width:${(D.d_now/D.central*100).toFixed(1)}%;background:var(--live)"></i></span></td></tr>`);
+
+const EARLY_R={2021:2.93,2022:2.41,2024:3.70,2025:1.99};
+const ratioBody=document.getElementById('t-ratio');
+YRS.forEach(y=>{
+  const a=EARLY_R[y], b=D.ratio_cumul[y], d=(b/a-1)*100;
+  ratioBody.insertAdjacentHTML('beforeend',
+   `<tr class="${y==='2025'?'hi':''}"><td>${y}</td><td class="n">×${a.toFixed(2)}</td>
+     <td class="n">×${b.toFixed(2)}</td>
+     <td class="n">${d>0?'+':''}${d.toFixed(0)} %</td></tr>`);
+});
+
+/* ---- chart ---- */
+const W=1000,H=470,ML=62,MR=52,MT=18,MB=42;
+const X0=ML,X1=W-MR,Y0=H-MB,Y1=MT,HMAX=56,VMAX=36e6;
+const sx=h=>X0+(h/HMAX)*(X1-X0), sy=v=>Y0-(v/VMAX)*(Y0-Y1);
+const svg=document.getElementById('chart');
+const NS='http://www.w3.org/2000/svg';
+const el=(t,a)=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);return n;};
+const path=pts=>pts.map((p,i)=>(i?'L':'M')+sx(p[0]).toFixed(1)+' '+sy(p[1]).toFixed(1)).join(' ');
+let g='';
+
+/* nights (02h-10h CEST => h 8-16 and 32-40) */
+[[8,16],[32,40]].forEach(([a,b])=>{
+  g+=`<rect x="${sx(a)}" y="${Y1}" width="${sx(b)-sx(a)}" height="${Y0-Y1}" fill="var(--night)"></rect>`;
+});
+g+=`<text class="axis-txt" x="${(sx(8)+sx(16))/2}" y="${Y1+13}" text-anchor="middle">nuit</text>`;
+g+=`<text class="axis-txt" x="${(sx(32)+sx(40))/2}" y="${Y1+13}" text-anchor="middle">nuit</text>`;
+
+/* grid + y axis */
+for(let v=0;v<=36e6;v+=6e6){
+  g+=`<line x1="${X0}" y1="${sy(v).toFixed(1)}" x2="${X1}" y2="${sy(v).toFixed(1)}"
+       stroke="var(--grid)" stroke-width="1"></line>`;
+  g+=`<text class="axis-txt" x="${X0-11}" y="${(sy(v)+3.5).toFixed(1)}" text-anchor="end">${v/1e6} M€</text>`;
+}
+/* x axis */
+for(let h=0;h<=56;h+=8){
+  g+=`<text class="axis-txt" x="${sx(h).toFixed(1)}" y="${Y0+22}" text-anchor="middle">${h} h</text>`;
+}
+g+=`<line x1="${X0}" y1="${Y0}" x2="${X1}" y2="${Y0}" stroke="var(--rule)" stroke-width="1"></line>`;
+
+/* projection band + dashed central */
+const band=D.projection.map(p=>[p[0],p[3]]).concat(D.projection.map(p=>[p[0],p[2]]).reverse());
+g+=`<path d="${path(band)}Z" fill="var(--live-soft)" stroke="none"></path>`;
+g+=`<path d="${path(D.projection.map(p=>[p[0],p[1]]))}" fill="none" stroke="var(--live)"
+      stroke-width="2" stroke-dasharray="6 5" stroke-linecap="round"></path>`;
+
+/* historical lines */
+YRS.forEach(y=>{
+  g+=`<path d="${path(D.hist[y])}" fill="none" stroke="var(${CVAR[y]})" stroke-width="2"
+        stroke-linejoin="round" stroke-linecap="round"></path>`;
+  const last=D.hist[y][D.hist[y].length-1];
+  const OFF={2022:-12,2024:0,2021:12,2025:4};
+  g+=`<text class="end-lbl" x="${(sx(last[0])+7).toFixed(1)}" y="${(sy(last[1])+OFF[y]).toFixed(1)}"
+        fill="var(${CVAR[y]})">${y}</text>`;
+});
+
+/* 2026 observed */
+const measured=D.obs_2026.slice(1);
+g+=`<path d="${path([D.obs_2026[0],measured[0]])}" fill="none" stroke="var(--live)"
+      stroke-width="1.4" stroke-dasharray="2 4" opacity=".6" stroke-linecap="round"></path>`;
+g+=`<path d="${path(measured)}" fill="none" stroke="var(--live)" stroke-width="2.6"
+      stroke-linejoin="round" stroke-linecap="round"></path>`;
+[[5.0,D.obs_2026[0][1]],[D.h_star,D.d_now]].forEach(p=>{
+  g+=`<circle cx="${sx(p[0]).toFixed(1)}" cy="${sy(p[1]).toFixed(1)}" r="4.5"
+       fill="var(--live)" stroke="var(--surface)" stroke-width="2"></circle>`;
+});
+/* endpoint of projection */
+g+=`<circle cx="${sx(55).toFixed(1)}" cy="${sy(D.central).toFixed(1)}" r="5"
+      fill="var(--surface)" stroke="var(--live)" stroke-width="2.5"></circle>`;
+g+=`<text class="end-lbl" x="${(sx(55)-6).toFixed(1)}" y="${(sy(D.central)-13).toFixed(1)}"
+      text-anchor="end" fill="var(--live)">29,8 M€</text>`;
+
+/* "now" marker */
+g+=`<line x1="${sx(D.h_star).toFixed(1)}" y1="${Y1}" x2="${sx(D.h_star).toFixed(1)}" y2="${Y0}"
+      stroke="var(--live-ring)" stroke-width="1" stroke-dasharray="3 3"></line>`;
+g+=`<text class="axis-txt" x="${(sx(D.h_star)-7).toFixed(1)}" y="${Y1+30}" text-anchor="end"
+      fill="var(--live)">maintenant</text>`;
+
+/* hover layer */
+g+=`<line id="cross" x1="0" y1="${Y1}" x2="0" y2="${Y0}" stroke="var(--ink-3)" stroke-width="1"
+      opacity="0" pointer-events="none"></line>`;
+g+=`<rect id="hit" x="${X0}" y="${Y1}" width="${X1-X0}" height="${Y0-Y1}" fill="transparent"></rect>`;
+svg.innerHTML=g;
+
+/* ---- tooltip ---- */
+const tip=document.getElementById('tip'), cross=document.getElementById('cross');
+const at=(pts,h)=>{
+  if(!pts.length||h<pts[0][0])return null;
+  for(let i=1;i<pts.length;i++){
+    if(pts[i][0]>=h){const[a,b]=[pts[i-1],pts[i]];
+      return b[0]===a[0]?b[1]:a[1]+(b[1]-a[1])*(h-a[0])/(b[0]-a[0]);}
+  }
+  return null;
+};
+const holder=svg.closest('.chart-holder'), scroll=svg.closest('.chart-scroll');
+function move(ev){
+  const r=svg.getBoundingClientRect();
+  const h=Math.max(0,Math.min(HMAX,((ev.clientX-r.left)/r.width*W-X0)/(X1-X0)*HMAX));
+  cross.setAttribute('x1',sx(h));cross.setAttribute('x2',sx(h));cross.setAttribute('opacity','.45');
+  let rows='';
+  YRS.forEach(y=>{const v=at(D.hist[y],h);
+    if(v!=null)rows+=`<div class="row"><span style="color:var(${CVAR[y]})">■</span> ${y}<b>${M(v)} M€</b></div>`;});
+  const o=at(D.obs_2026,h), pr=at(D.projection.map(p=>[p[0],p[1]]),h);
+  if(o!=null)rows+=`<div class="row"><span style="color:var(--live)">■</span> 2026<b>${M(o)} M€</b></div>`;
+  else if(pr!=null)rows+=`<div class="row"><span style="color:var(--live)">▮</span> 2026 proj.<b>${M(pr)} M€</b></div>`;
+  tip.innerHTML=`<div class="th">h = ${h.toLocaleString('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1})}</div>${rows}`;
+  tip.style.opacity='1';
+  const hr=holder.getBoundingClientRect();
+  let left=ev.clientX-hr.left+14;
+  if(left+tip.offsetWidth>hr.width)left=ev.clientX-hr.left-tip.offsetWidth-14;
+  tip.style.left=Math.max(0,left)+'px';
+  tip.style.top=Math.max(0,ev.clientY-hr.top-tip.offsetHeight-12)+'px';
+}
+scroll.addEventListener('pointermove',move);
+scroll.addEventListener('pointerleave',()=>{tip.style.opacity='0';cross.setAttribute('opacity','0');});
+})();
+</script>
