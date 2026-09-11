@@ -146,30 +146,31 @@ footer a:focus-visible,.tbl a:focus-visible{outline:2px solid var(--live);outlin
 <div class="wrap">
 
 <header>
-  <p class="eyebrow">Modèle statistique · dernière édition · 22 associations</p>
-  <h1>Combien le ZEvent 2026 va-t-il récolter&nbsp;?</h1>
+  <p class="eyebrow">Post-mortem · modèle statistique · dernière édition</p>
+  <h1>Le ZEvent 2026 a récolté 32,9 M€. Le modèle en annonçait 29,8.</h1>
   <div class="verdict">
     <div class="v-main">
-      <p class="eyebrow" style="margin-bottom:12px">Estimation du total final</p>
-      <div class="big">29,8<small>&nbsp;M€</small></div>
-      <p class="v-sub">Intervalle 80&nbsp;% : <strong style="color:var(--ink)">26 – 34 M€</strong>.
-         Soit <strong style="color:var(--ink)">×1,84</strong> le record de 2025.</p>
+      <p class="eyebrow" style="margin-bottom:12px">Total final officiel</p>
+      <div class="big">32,9<small>&nbsp;M€</small></div>
+      <p class="v-sub">Prédit&nbsp;: <strong style="color:var(--ink)">29,8 M€</strong> —
+         erreur <strong style="color:var(--ink)">−9,4 %</strong>, dans l'intervalle 80&nbsp;% annoncé
+         (26–34 M€), au 82<sup>e</sup> centile de la distribution.</p>
     </div>
     <div>
       <dl class="facts">
-        <div class="fact"><dt><span class="live-dot"></span>Cagnotte en direct</dt><dd id="f-now">13 446 088 €</dd></div>
-        <div class="fact"><dt>Temps écoulé</dt><dd id="f-h">41,9 h / 55 h</dd></div>
-        <div class="fact"><dt>Reste à collecter (estimé)</dt><dd id="f-rem">16,4 M€</dd></div>
-        <div class="fact"><dt>Record actuel (2025)</dt><dd>16 179 096 €</dd></div>
+        <div class="fact"><dt>Total réel</dt><dd>32 891 874 €</dd></div>
+        <div class="fact"><dt>Prédiction faite à</dt><dd>h = 41,9 / 55 h</dd></div>
+        <div class="fact"><dt>λ prédit en fin d'événement</dt><dd>1,824</dd></div>
+        <div class="fact"><dt>λ réel</dt><dd style="color:var(--live)">2,033</dd></div>
       </dl>
     </div>
   </div>
   <div class="prose">
-    <p>Le ZEvent 2026 a démarré vendredi 4 septembre à 18&nbsp;h et se termine dans la nuit de
-       dimanche à lundi. Toutes les éditions suivent ce même calendrier, ce qui permet de les
-       superposer heure par heure et de situer 2026 par rapport à son histoire.</p>
+    <p>La prédiction avait été faite dimanche matin, à 13 h de la fin, avec 13,45 M€ au compteur.
+       Elle reposait sur une seule idée&nbsp;: 2026 rejouait la courbe de 2025 à un facteur λ près.
+       <strong>L'idée était juste, le réglage de λ ne l'était pas.</strong></p>
   </div>
-</header>
+  </header>
 
 <section>
   <figure>
@@ -190,11 +191,13 @@ footer a:focus-visible,.tbl a:focus-visible{outline:2px solid var(--live);outlin
       <li><span class="swatch" style="background:var(--live)"></span>2026 · relevés</li>
       <li><span class="swatch" style="background:repeating-linear-gradient(90deg,var(--live) 0 2px,transparent 2px 6px)"></span>2026 · pas de relevé</li>
       <li><span class="swatch dash"></span>2026 · projection (bande&nbsp;80&nbsp;%)</li>
+      <li><span class="swatch" style="background:var(--ink);height:9px;width:9px;border-radius:50%"></span>résultat réel</li>
     </ul>
     <figcaption>Les zones grisées sont les nuits (2&nbsp;h–10&nbsp;h), où la collecte s'aplatit.
       Les courbes décollent toutes dans les dernières heures : c'est le sprint final qui fait le total,
       pas le rythme de croisière. Le segment pointillé de 2026 relie deux relevés distants —
-      la trajectoire réelle entre h&nbsp;=&nbsp;5 et h&nbsp;=&nbsp;32 n'est pas mesurée.</figcaption>
+      la trajectoire réelle entre h&nbsp;=&nbsp;5 et h&nbsp;=&nbsp;32 n'est pas mesurée. Le point noir
+      est le total officiel&nbsp;: il tombe dans la bande haute de la projection.</figcaption>
   </figure>
 </section>
 
@@ -223,44 +226,55 @@ footer a:focus-visible,.tbl a:focus-visible{outline:2px solid var(--live);outlin
 </section>
 
 <section>
-  <p class="eyebrow" style="margin-bottom:14px">Ce que donne le modèle selon l'hypothèse sur λ</p>
-  <div class="scen">
-    <div><span class="val">31,3<small> M€</small></span><span class="lbl">λ figé à sa valeur initiale</span><span class="lam">λ = 1,99 (mesuré à h = 5)</span></div>
-    <div><span class="val mid">29,8<small> M€</small></span><span class="lbl">λ extrapolé — <strong>retenu</strong></span><span class="lam">λ = 1,82 en fin d'événement</span></div>
-    <div><span class="val">30,2<small> M€</small></span><span class="lbl">λ figé à sa valeur actuelle</span><span class="lam">λ = 1,87 (mesuré à h = 41,9)</span></div>
+  <p class="eyebrow" style="margin-bottom:14px">Classement rétrospectif des modèles testés</p>
+  <table class="tbl" style="margin-bottom:26px">
+    <thead><tr><th>Modèle</th><th>Prédiction</th><th>Erreur</th></tr></thead>
+    <tbody>
+      <tr><td>Homothétie, λ figé à sa valeur initiale (1,99)</td><td class="n">31,3 M€</td><td class="n">−4,8 %</td></tr>
+      <tr><td>Homothétie, λ figé à sa valeur actuelle (1,87)</td><td class="n">30,2 M€</td><td class="n">−8,2 %</td></tr>
+      <tr class="hi"><td>Homothétie, λ extrapolé — <strong>retenu</strong></td><td class="n">29,8 M€</td><td class="n">−9,4 %</td></tr>
+      <tr><td>Puissance amortie β=0,25 — <em>optimum du backtest</em></td><td class="n">23,9 M€</td><td class="n">−27,3 %</td></tr>
+      <tr><td>Régression front-loading</td><td class="n">22,4 M€</td><td class="n">−31,9 %</td></tr>
+      <tr><td>Additif</td><td class="n">20,3 M€</td><td class="n">−38,3 %</td></tr>
+    </tbody>
+  </table>
+  <div class="prose">
+    <h2>Où est passée l'erreur</h2>
+    <p>Le modèle mesurait λ à deux instants — <strong>1,99</strong> à h&nbsp;=&nbsp;5 puis
+       <strong>1,87</strong> à h&nbsp;=&nbsp;41,9 — et extrapolait cette lente décroissance
+       jusqu'à <strong>1,82</strong>. En réalité λ a fait l'inverse&nbsp;: il est
+       <strong>remonté à 2,03</strong>.</p>
+    <p>Autrement dit, le sprint final de la dernière édition a surperformé celui de 2025, au lieu
+       de s'essouffler. C'est exactement le risque signalé et non chiffré à l'époque —
+       « effet dernière édition, asymétrique à la hausse ». Extrapoler la dérive a coûté
+       4,6 points&nbsp;: ne pas y toucher du tout donnait 31,3 M€.</p>
+    <h2>Ce que le backtest aurait fait faire</h2>
+    <p>La validation croisée sur les éditions passées désignait un modèle amorti (β&nbsp;=&nbsp;0,25),
+       soit <strong>23,9 M€</strong> — une erreur de 27&nbsp;%. Le choix d'écarter cet optimum au
+       profit du raisonnement sur la forme des courbes a été le bon, et c'est lui qui a porté
+       l'essentiel de la performance.</p>
   </div>
-  <div class="prose" style="margin-top:22px">
-    <h2>La méthode en une ligne</h2>
-    <p>On mesure λ, le rapport entre la cagnotte 2026 et celle de 2025 à la même heure. Il vaut
-       <strong>1,99</strong> à h&nbsp;=&nbsp;5 et <strong>1,87</strong> à h&nbsp;=&nbsp;41,9 — et le rapport des
-       <em>débits instantanés</em> concorde. On extrapole cette lente dérive jusqu'à la fin,
-       puis on applique λ au reste-à-collecter observé en 2025&nbsp;:</p>
-    <p style="font-family:var(--font-m);font-size:13.5px;background:var(--sunk);border-radius:9px;
-              padding:14px 16px;color:var(--ink);overflow-x:auto">
-       F = 13,45 M€ + (16,18 − 7,20) M€ × 1,82 = <strong>29,8 M€</strong></p>
-  </div>
-</section>
-
-<section>
-  <h2 style="margin-bottom:6px">Ce qui peut casser cette prédiction</h2>
-  <p class="prose" style="margin-bottom:20px">La fragilité est réelle, et elle est concentrée
-     sur un point : tout repose sur une seule édition de référence.</p>
+  <section>
+  <h2 style="margin-bottom:6px">Les limites annoncées, rejugées après coup</h2>
+  <p class="prose" style="margin-bottom:20px">Cinq fragilités avaient été listées avant le résultat.
+     Voici lesquelles ont mordu.</p>
   <ul class="limits">
-    <li><span class="k">Référence unique</span><span class="v">Le backtest leave-one-out montre qu'une
+    <li><span class="k">Référence unique ✓</span><span class="v"><strong>N'a pas mordu.</strong> Le backtest leave-one-out montre qu'une
       homothétie entre deux éditions de <em>formes</em> différentes se trompe de 20 à 60 %. Ici les formes
       concordent — mais ce critère n'est pas validable sur l'historique : aucune paire passée n'est aussi
       stable que 2026↔2025.</span></li>
-    <li><span class="k">Hors domaine</span><span class="v">Les totaux historiques tiennent dans
+    <li><span class="k">Hors domaine ✓</span><span class="v"><strong>N'a pas mordu.</strong> Les totaux historiques tiennent dans
       10–16 M€. Le modèle prédit le double, en extrapolation.</span></li>
-    <li><span class="k">Anomalie 2025</span><span class="v">La courbe 2025 contient un saut de
+    <li><span class="k">Anomalie 2025 ✓</span><span class="v"><strong>N'a pas mordu.</strong> La courbe 2025 contient un saut de
       +2,3 M€ en une heure (h = 29→30) qui gonfle sa part collectée. 2026 semble avoir connu des
       sursauts comparables — Mastu passe de 0,43 à 2,0 M€ — donc la comparaison tient, mais c'est
       une hypothèse.</span></li>
-    <li><span class="k">Trou de données</span><span class="v">λ n'est mesuré qu'en deux points :
+    <li><span class="k">Trou de données ⚠</span><span class="v"><strong>A contribué.</strong> Avec deux points seulement, la dérive de λ était sur-interprétée. λ n'était mesuré qu'en deux points :
       pas de relevé 2026 entre h = 5 et h = 32.</span></li>
-    <li><span class="k">Dernière édition</span><span class="v">Effet non modélisé, et
+    <li><span class="k">Dernière édition ✗</span><span class="v"><strong>C'est elle qui a mordu.</strong> Effet non modélisé, et
       <strong>asymétrique à la hausse</strong> : le final d'un ZEvent qui s'arrête définitivement
-      peut surperformer.</span></li>
+      peut surperformer. C'est précisément ce qui s'est produit — λ est remonté de 1,87 à 2,03
+      dans les treize dernières heures.</span></li>
   </ul>
 </section>
 
@@ -268,7 +282,7 @@ footer a:focus-visible,.tbl a:focus-visible{outline:2px solid var(--live);outlin
   <span>Compteur : <a href="https://zevent.fr/api/">API officielle ZEvent</a> ·
         courbes 2019-2025 : <a href="https://zevent-cagnotte.vercel.app/">zevent-cagnotte</a> ·
         totaux : <a href="https://fr.wikipedia.org/wiki/ZEvent">Wikipédia</a></span>
-  <span class="num" id="f-gen">Relevé du 6 septembre 2026, 11 h 52 (Paris)</span>
+  <span class="num" id="f-gen">Prédiction du 6 septembre · résultat du 7 septembre 2026</span>
 </footer>
 </div>
 
@@ -279,10 +293,7 @@ const D=JSON.parse(document.getElementById('d').textContent);
 const eur=n=>new Intl.NumberFormat('fr-FR').format(Math.round(n));
 const M=n=>(n/1e6).toLocaleString('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1});
 
-/* ---- header facts ---- */
-document.getElementById('f-now').textContent=eur(D.d_now)+' €';
-document.getElementById('f-h').textContent=D.h_star.toLocaleString('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1})+' h / 55 h';
-document.getElementById('f-rem').textContent=M(D.central-D.d_now)+' M€';
+/* en-tete : valeurs statiques depuis la cloture de l'evenement */
 
 /* ---- tables ---- */
 const YRS=['2021','2022','2024','2025'], CVAR={2021:'--e21',2022:'--e22',2024:'--e24',2025:'--e25'};
@@ -366,8 +377,15 @@ g+=`<path d="${path(measured)}" fill="none" stroke="var(--live)" stroke-width="2
 /* endpoint of projection */
 g+=`<circle cx="${sx(55).toFixed(1)}" cy="${sy(D.central).toFixed(1)}" r="5"
       fill="var(--surface)" stroke="var(--live)" stroke-width="2.5"></circle>`;
-g+=`<text class="end-lbl" x="${(sx(55)-6).toFixed(1)}" y="${(sy(D.central)-13).toFixed(1)}"
-      text-anchor="end" fill="var(--live)">29,8 M€</text>`;
+g+=`<text class="end-lbl" x="${(sx(55)-6).toFixed(1)}" y="${(sy(D.central)+16).toFixed(1)}"
+      text-anchor="end" fill="var(--live)">29,8 M€ prédit</text>`;
+const ACT=32891874;
+g+=`<line x1="${sx(55).toFixed(1)}" y1="${sy(D.central).toFixed(1)}" x2="${sx(55).toFixed(1)}"
+      y2="${sy(ACT).toFixed(1)}" stroke="var(--ink-3)" stroke-width="1" stroke-dasharray="2 3"></line>`;
+g+=`<circle cx="${sx(55).toFixed(1)}" cy="${sy(ACT).toFixed(1)}" r="6"
+      fill="var(--ink)" stroke="var(--surface)" stroke-width="2"></circle>`;
+g+=`<text class="end-lbl" x="${(sx(55)-6).toFixed(1)}" y="${(sy(ACT)-12).toFixed(1)}"
+      text-anchor="end" fill="var(--ink)">32,9 M€ réel</text>`;
 
 /* "now" marker */
 g+=`<line x1="${sx(D.h_star).toFixed(1)}" y1="${Y1}" x2="${sx(D.h_star).toFixed(1)}" y2="${Y0}"

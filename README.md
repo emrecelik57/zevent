@@ -5,9 +5,25 @@ en direct et des courbes de collecte des éditions précédentes.
 
 ## Résultat
 
-**≈ 30 M€** (intervalle 80 % : **26 – 35 M€**), soit ~1,9× le record de 2025.
+| | |
+|---|---|
+| **Réel** | **32 891 874 €** |
+| Prédit | 29 808 651 € |
+| Erreur | **−9,4 %** — dans l'intervalle 80 % annoncé (26–34 M€), au 82ᵉ centile |
 
-Estimation faite à h\* ≈ 32 h sur ~55 h d'événement, avec 12,87 M€ déjà collectés.
+Prédiction faite à h\* = 41,9 h sur 55 h, avec 13,45 M€ au compteur.
+
+`python3 src/score.py` rejoue la confrontation.
+
+### Où est passée l'erreur
+
+λ était mesuré à 1,99 (h=5) puis 1,87 (h=41,9) ; le modèle extrapolait la décroissance
+jusqu'à 1,82. En réalité **λ est remonté à 2,03** : le sprint final de la dernière édition
+a surperformé celui de 2025. C'est le risque « dernière édition » signalé mais non chiffré.
+Ne pas extrapoler la dérive du tout donnait 31,3 M€ (−4,8 %).
+
+Le backtest, lui, désignait un modèle amorti (β=0,25) à 23,9 M€, soit −27 %. L'avoir écarté
+au profit du raisonnement sur la forme des courbes a porté l'essentiel de la performance.
 
 ## Données
 
